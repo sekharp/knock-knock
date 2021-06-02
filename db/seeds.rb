@@ -12,3 +12,13 @@ User.create(email: "nica.langinger@organizingempowerment.org", password: "passwo
 User.create(email: "brennan.saeta@organizingempowerment.org", password: "password", password_confirmation: "password")
 User.create(email: "danielle.beavers@organizingempowerment.org", password: "password", password_confirmation: "password")
 User.create(email: "ted.westling@organizingempowerment.org", password: "password", password_confirmation: "password")
+
+User.all.each do |u|
+  20.times do |i|
+    u.prospects.create(
+      name: "Prospect #{i+1}",
+      email: "prospect-email-#{i+1}@gmail.com",
+      notes: i % 2 == 0 ? "Thoroughly enjoyed meeting prospect ##{i+1}. #{['Strong', 'Weak'].sample} potential." : nil
+    )
+  end
+end
