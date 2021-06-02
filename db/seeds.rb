@@ -6,6 +6,9 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-5.times do |i|
-  User.create(email: "user-#{i+1}@organizingempowerment.org", password: "password", password_confirmation: "password")
-end
+User.create(email: "sam.king@organizingempowerment.org", password: "password", password_confirmation: "password")
+User.create(email: "sekhar.paladugu@organizingempowerment.org", password: "password", password_confirmation: "password")
+User.create(email: "nica.langinger@organizingempowerment.org", password: "password", password_confirmation: "password")
+User.create(email: "brennan.saeta@organizingempowerment.org", password: "password", password_confirmation: "password")
+User.create(email: "danielle.beavers@organizingempowerment.org", password: "password", password_confirmation: "password")
+User.create(email: "ted.westling@organizingempowerment.org", password: "password", password_confirmation: "password")
