@@ -1,4 +1,6 @@
 class Prospect < ApplicationRecord
+  default_scope { order(created_at: :desc) }
+
   belongs_to :user
 
   validates :name, presence: true, length: { maximum: 100 }
