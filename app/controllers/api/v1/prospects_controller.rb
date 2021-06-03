@@ -17,6 +17,18 @@ class Api::V1::ProspectsController < ApplicationController
   end
 
   def create
+    @prospect = current_user.prospects.build(prospect_params)
+    if authorized?
+      respond_to do |format|
+        if @prospect.save
+          format.json { render :show, status: :created, location: api_v1_prospect_path(@prospect) }
+        else
+          format.json { render json: @prospect.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+      handle_unauthorized
+    end
   end
 
   def update
@@ -41,5 +53,10 @@ class Api::V1::ProspectsController < ApplicationController
         format.json { render :unauthorized, status: 401 }
       end
     end
+  end
+
+  # strong params to prevent bulk data mutations
+  def prospect_params
+    params.require(:prospect).permit(:name, :email, :notes)
   end
 end
