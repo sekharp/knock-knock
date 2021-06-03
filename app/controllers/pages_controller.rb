@@ -2,6 +2,6 @@ class PagesController < ApplicationController
   def home
   end
 
-  def prospects
+  def my_prospects
   end
 end

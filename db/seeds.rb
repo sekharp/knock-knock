@@ -17,7 +17,7 @@ User.all.each do |u|
     u.prospects.create(
       name: "Prospect #{i+1}",
       email: "prospect-email-#{i+1}@gmail.com",
-      notes: i % 2 == 0 ? "Thoroughly enjoyed meeting prospect ##{i+1}. #{['Strong', 'Weak'].sample} potential." : nil
+      notes: i % 2 == 0 ? "Great convo w/prospect ##{i+1}. #{['Strong', 'Weak'].sample} potential." : nil
     )
   end
 end
