@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 
+require("./components/KnockKnockApp");
 require('bootstrap')
 import 'bootstrap/dist/css/bootstrap'
 
