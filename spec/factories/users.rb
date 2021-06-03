@@ -5,7 +5,7 @@ FactoryBot.define do
 
     factory :user_with_prospects do
       transient do
-        prospect_count { 5 }
+        prospects_count { 5 }
       end
 
       after(:create) do |user, evaluator|
