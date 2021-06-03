@@ -32,5 +32,10 @@ RSpec.describe Prospect, type: :model do
       prospect.email = 'ZZYZX'
       expect(prospect).to_not be_valid
     end
+
+    it 'cannot have note longer than 0 characters' do
+      prospect.name = 'A' * 1001
+      expect(prospect).to_not be_valid
+    end
   end
 end
