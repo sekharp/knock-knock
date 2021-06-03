@@ -2,6 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import PropTypes from 'prop-types'
 import axios from 'axios'
+import setAxiosHeaders from "./AxiosHeaders";
 
 class ProspectForm extends React.Component {
   constructor(props) {
@@ -14,6 +15,7 @@ class ProspectForm extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    setAxiosHeaders()
     axios
       .post('/api/v1/prospects', {
         prospect: {
@@ -21,10 +23,6 @@ class ProspectForm extends React.Component {
           email: this.emailRef.current.value,
           notes: this.notesRef.current.value,
         },
-      })
-      .then(response => {
-        const prospect = response.data
-        this.props.createProspect(todoItem)
       })
       .catch(error => {
         console.log(error)
