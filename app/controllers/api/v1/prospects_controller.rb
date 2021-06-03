@@ -32,6 +32,17 @@ class Api::V1::ProspectsController < ApplicationController
   end
 
   def update
+    if authorized?
+      respond_to do |format|
+        if @prospect.update(prospect_params)
+          format.json { render :show, status: :ok, location: api_v1_prospect_path(@prospect) }
+        else
+          format.json { render json: @prospect.errors, status: :unprocessable_entity }
+        end
+      end
+    else
+        handle_unauthorized
+    end
   end
 
   def destroy
