@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   authenticated :user do
     root "pages#my_prospects", as: :authenticated_root
+    get '/create', to: 'pages#create_prospect'
   end
 
   root 'pages#home'

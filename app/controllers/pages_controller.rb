@@ -4,4 +4,7 @@ class PagesController < ApplicationController
 
   def my_prospects
   end
+
+  def create_prospect
+  end
 end

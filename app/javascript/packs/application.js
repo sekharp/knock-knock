@@ -9,5 +9,6 @@ require('@rails/activestorage').start()
 require('channels')
 
 require("./components/KnockKnockApp");
+require("./components/ProspectForm");
 require('bootstrap')
 import 'bootstrap/dist/css/bootstrap'
