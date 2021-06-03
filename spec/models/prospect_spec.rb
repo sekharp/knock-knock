@@ -37,5 +37,10 @@ RSpec.describe Prospect, type: :model do
       prospect.name = 'A' * 1001
       expect(prospect).to_not be_valid
     end
+
+    it "should have a user" do
+      prospect.user = nil
+      expect(prospect).to_not be_valid
+    end    
   end
 end
