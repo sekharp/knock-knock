@@ -1,0 +1,1 @@
+json.array! @prospects, partial: "api/v1/prospects/prospect", as: :prospect

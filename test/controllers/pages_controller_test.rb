@@ -6,8 +6,8 @@ class PagesControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
-  test "should get my_canvass_records" do
-    get pages_my_canvass_records_url
+  test "should get my_prospects" do
+    get pages_my_prospects_url
     assert_response :success
   end
 end
