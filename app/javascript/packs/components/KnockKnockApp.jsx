@@ -32,7 +32,6 @@ class KnockKnockApp extends React.Component {
   render() {
     return (
       <div>
-        <p>Knock Knock App</p>
         <a href='/create'>Add Prospects</a>
         <Prospects>
           {this.state.prospects.map(prospect => (

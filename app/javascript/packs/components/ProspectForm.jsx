@@ -36,7 +36,7 @@ class ProspectForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit} className="my-3">
         <div className="form-row">
-          <div className="form-group col-12">
+          <div className="form-group col-12 my-2">
             <input
               type="text"
               name="name"
@@ -47,7 +47,7 @@ class ProspectForm extends React.Component {
               placeholder="Write the prospect name here..."
             />
           </div>
-          <div className="form-group col-12">
+          <div className="form-group col-12 my-2">
             <input
               type="text"
               name="email"
@@ -58,12 +58,11 @@ class ProspectForm extends React.Component {
               placeholder="Write the prospect email here..."
             />
           </div>
-          <div className="form-group col-12">
+          <div className="form-group col-12 my-2">
             <input
               type="text"
               name="notes"
-              ref={this.nameRef}
-              required
+              ref={this.notesRef}
               className="form-control"
               id="notes"
               placeholder="Write the prospect notes here..."
