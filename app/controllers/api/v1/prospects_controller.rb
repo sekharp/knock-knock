@@ -1,8 +1,9 @@
 class Api::V1::ProspectsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_prospect, only: [:show, :edit, :update, :destroy]
 
   def index
-    @prospects = Prospect.all
+    @prospects = current_user.prospects.all
   end
 
   def show
@@ -21,5 +22,17 @@ class Api::V1::ProspectsController < ApplicationController
 
   def set_prospect
       @prospect = Prospect.find(params[:id])
+  end
+
+  def authorized?
+    @prospect.user == current_user
+  end
+
+  def handle_unauthorized
+    unless authorized?
+      respond_to do |format|
+        format.json { render :unauthorized, status: 401 }
+      end
+    end
   end
 end
