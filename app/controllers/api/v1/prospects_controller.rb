@@ -46,6 +46,14 @@ class Api::V1::ProspectsController < ApplicationController
   end
 
   def destroy
+    if authorized?
+      @prospect.destroy
+      respond_to do |format|
+        format.json { head :no_content }
+      end
+    else
+        handle_unauthorized
+    end
   end
 
   private
