@@ -9,7 +9,6 @@
 User.create(email: "sam.king@organizingempowerment.org", password: "password", password_confirmation: "password")
 User.create(email: "sekhar.paladugu@organizingempowerment.org", password: "password", password_confirmation: "password")
 User.create(email: "nica.langinger@organizingempowerment.org", password: "password", password_confirmation: "password")
-User.create(email: "brennan.saeta@organizingempowerment.org", password: "password", password_confirmation: "password")
 User.create(email: "danielle.beavers@organizingempowerment.org", password: "password", password_confirmation: "password")
 User.create(email: "ted.westling@organizingempowerment.org", password: "password", password_confirmation: "password")
 
