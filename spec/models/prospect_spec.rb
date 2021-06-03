@@ -41,6 +41,14 @@ RSpec.describe Prospect, type: :model do
     it "should have a user" do
       prospect.user = nil
       expect(prospect).to_not be_valid
-    end    
+    end
+  end
+
+  describe "descending scope for created_at order" do
+    let!(:first_prospect) { FactoryBot.create(:prospect, created_at: Time.now - 1.day) }
+    let!(:last_prospect) { FactoryBot.create(:prospect, created_at: Time.now + 1.day) }
+    it "should sort prospect by created_at descending order" do
+      expect(Prospect.first).to eq(last_prospect)
+    end
   end
 end
