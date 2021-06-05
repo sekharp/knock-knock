@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import axios from "axios";
 import setAxiosHeaders from "./AxiosHeaders";
+import _ from "lodash";
 
 class Prospect extends React.Component {
   constructor(props) {
@@ -19,7 +20,7 @@ class Prospect extends React.Component {
     this.updateProspect();
   }
 
-  updateProspect() {
+  updateProspect = _.debounce(() => {
     setAxiosHeaders();
     axios
       .put(this.path, {
@@ -33,7 +34,7 @@ class Prospect extends React.Component {
       .catch(error => {
         console.log(error);
       });
-  }
+    }, 1000);
 
   handleDestroy() {
     setAxiosHeaders();
