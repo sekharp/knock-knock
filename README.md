@@ -1,24 +1,29 @@
-# README
+# Knock Knock: Canvassing by Empower
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This repo contains a basic CRUD app for tracking prospects when canvassing door-to-door built on Ruby on Rails and React. You can find the app [deployed to production on Heroku](https://knock-knock.herokuapp.com).
 
-Things you may want to cover:
+Features include:
 
-* Ruby version
+* Create, view, update and delete prospects
+* Track prospects names and emails with notes about prospects
+* Authentication via [devise](https://github.com/heartcombo/devise)
+* Validation on name, email and notes for length and format
+* Minor styling via Bootstrap
+* Debounce on edit requests for 1 second after users stop typing (to minimize API requests)
+* Mobile-friendly views
+* Deployed on production via Heroku
 
-* System dependencies
+## Getting Started
 
-* Configuration
+To run this app locally, run the following commands in your terminal:
 
-* Database creation
+```shell
+git clone https://github.com/heroku/knock-knock.git
+cd knock-knock
+rails db:create db:migrate db:seed
+rails s
+```
 
-* Database initialization
+## Questions, Suggestions, Comments?
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Get in touch by adding an [issue](https://github.com/sekharp/knock-knock/issues).
