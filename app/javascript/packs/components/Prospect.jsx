@@ -1,7 +1,30 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import axios from "axios";
+import setAxiosHeaders from "./AxiosHeaders";
 
 class Prospect extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleDestroy = this.handleDestroy.bind(this);
+    this.path = `/api/v1/prospects/${this.props.prospect.id}`;
+  }
+
+  handleDestroy() {
+    setAxiosHeaders();
+    const confirmation = confirm("Are you sure?");
+    if (confirmation) {
+      axios
+        .delete(this.path)
+        .then(response => {
+          this.props.getProspects();
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  }
+
   render() {
     const { prospect } = this.props
     return (
@@ -31,7 +54,7 @@ class Prospect extends React.Component {
           />
         </td>
         <td className="text-right">
-          <button className="btn btn-outline-danger">Delete</button>
+          <button className="btn btn-outline-danger" onClick={this.handleDestroy}>Delete</button>
         </td>
       </tr>
     )
@@ -42,4 +65,5 @@ export default Prospect
 
 Prospect.propTypes = {
   prospect: PropTypes.object.isRequired,
+  getProspects: PropTypes.func.isRequired
 }

@@ -35,7 +35,7 @@ class KnockKnockApp extends React.Component {
         <a href='/create'>Add Prospects</a>
         <Prospects>
           {this.state.prospects.map(prospect => (
-            <Prospect key={prospect.id} prospect={prospect} />
+            <Prospect key={prospect.id} prospect={prospect} getProspects={this.getProspects} />
           ))}
         </Prospects>
       </div>
