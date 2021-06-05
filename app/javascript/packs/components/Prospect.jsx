@@ -8,6 +8,31 @@ class Prospect extends React.Component {
     super(props);
     this.handleDestroy = this.handleDestroy.bind(this);
     this.path = `/api/v1/prospects/${this.props.prospect.id}`;
+    this.handleChange = this.handleChange.bind(this);
+    this.updateProspect = this.updateProspect.bind(this);
+    this.nameInputRef = React.createRef();
+    this.emailInputRef = React.createRef();
+    this.notesInputRef = React.createRef();
+  }
+
+  handleChange() {
+    this.updateProspect();
+  }
+
+  updateProspect() {
+    setAxiosHeaders();
+    axios
+      .put(this.path, {
+        prospect: {
+          name: this.nameInputRef.current.value,
+          email: this.emailInputRef.current.value,
+          notes: this.notesInputRef.current.value,
+        }
+      })
+      .then(response => {})
+      .catch(error => {
+        console.log(error);
+      });
   }
 
   handleDestroy() {
@@ -33,6 +58,8 @@ class Prospect extends React.Component {
           <input
             type="text"
             defaultValue={prospect.name}
+            onChange={this.handleChange}
+            ref={this.nameInputRef}
             className="form-control"
             id={`prospect__name-${prospect.id}`}
           />
@@ -41,6 +68,8 @@ class Prospect extends React.Component {
           <input
             type="text"
             defaultValue={prospect.email}
+            onChange={this.handleChange}
+            ref={this.emailInputRef}
             className="form-control"
             id={`prospect__email-${prospect.id}`}
           />
@@ -49,6 +78,8 @@ class Prospect extends React.Component {
           <input
             type="text"
             defaultValue={prospect.notes}
+            onChange={this.handleChange}
+            ref={this.notesInputRef}
             className="form-control"
             id={`prospect__notes-${prospect.id}`}
           />
