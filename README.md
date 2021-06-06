@@ -14,6 +14,7 @@ Features include:
 * Minor styling via Bootstrap
 * Debounce on edit requests for 1 second after users stop typing (to minimize API requests)
 * Mobile-friendly views
+* Test for modelling of users and prospects (including validation tests)
 
 ## Getting Started
 
