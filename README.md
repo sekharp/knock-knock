@@ -20,7 +20,7 @@ Features include:
 Before running this app please install (Rails 6.x)[https://guides.rubyonrails.org/getting_started.html] and (Ruby 3.x)[https://www.ruby-lang.org/en/documentation/installation/]. To run this app locally, run the following commands in your terminal:
 
 ```shell
-git clone https://github.com/heroku/knock-knock.git
+git clone https://github.com/sekharp/knock-knock.git
 cd knock-knock
 rails db:create db:migrate db:seed
 rails s
