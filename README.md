@@ -27,7 +27,7 @@ rails db:create db:migrate db:seed
 rails s
 ```
 
-After starting the server visit `http://localhost:3000`
+After starting the server visit `http://localhost:3000`.
 
 ## Questions, Suggestions, Comments?
 
